@@ -1,2 +1,2 @@
 # robot-search
-using React to make search easy ans fast
+using React to make search easy and fast
