@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import ErrorBoundy from '../components/ErrorBoundy';
 
 //main thing that display all things
 class App extends Component {
@@ -40,17 +41,19 @@ class App extends Component {
         return !robots.length ?
 
         //display try again if it loads nothing
-            <h1><img alt='Try Again' src='https://fontmeme.com/permalink/190423/4a10442b41a5bb45aa269ddf82378aef.png' /></h1> :
-            (
-                //display the whole page
-                <div className='tc'>
-                    <h1><img src='https://fontmeme.com/permalink/190423/a2825c4f9c5ee4cdedf2af3554f6e185.png' alt='Logo'/></h1>
-                    <SearchBox searchchange={this.onSearchchange} />
-                    <Scroll>
+        <h1><img alt='Try Again' src='https://fontmeme.com/permalink/190423/4a10442b41a5bb45aa269ddf82378aef.png' /></h1> :
+        (
+            //display the whole page
+            <div className='tc'>
+                <h1><img src='https://fontmeme.com/permalink/190423/a2825c4f9c5ee4cdedf2af3554f6e185.png' alt='Logo'/></h1>
+                <SearchBox searchchange={this.onSearchchange} />
+                <Scroll>
+                    <ErrorBoundy>
                         <CardList robots={filterRobots} />
-                    </Scroll>
-                </div>
-            )
+                    </ErrorBoundy>
+                </Scroll>
+            </div>
+        )
     }
 }
 
